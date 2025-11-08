@@ -1,0 +1,4 @@
+/dev/cu.Bluetooth-Incoming-Port
+/dev/cu.debug-console
+/dev/cu.OnePlusBulletsWirelessZ
+/dev/cu.wlan-debug

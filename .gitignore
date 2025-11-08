@@ -1,0 +1,11 @@
+espenv/
+.DS_Store
+.vscode/
+utils/
+__pycache__/
+*.pyc
+.idea/
+.env.*
+.env
+*.log
+.ipynb_checkpoints/
