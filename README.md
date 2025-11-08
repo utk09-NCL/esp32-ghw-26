@@ -127,3 +127,41 @@ mpremote connect /dev/cu.usbserial-0001 repl
 # >>>
 # I pressed Ctrl+X to exit the REPL
 ```
+
+## Check files on the device and read a file
+
+```bash
+mpremote connect /dev/cu.usbserial-0001 fs ls
+# Sample output:
+# ls :
+#          139 boot.py
+
+# print the content of a file on the device
+mpremote connect /dev/cu.usbserial-0001 cat boot.py
+
+# Sample output:
+#   This file is executed on every boot (including wake-boot from deepsleep)
+    #import esp
+    #esp.osdebug(None)
+    #import webrepl
+    #webrepl.start()
+```
+
+## Upload a file to the device
+
+```bash
+mpremote connect /dev/cu.usbserial-0001 fs cp filename.py :filename.py
+```
+
+## Run the uploaded file
+
+```bash
+mpremote connect /dev/cu.usbserial-0001 run filename.py
+
+# Alternate way to run the file:
+mpremote connect /dev/cu.usbserial-0001 repl
+>>> import filename
+
+# Another way using exec:
+mpremote connect /dev/cu.usbserial-0001 exec "import filename"
+```
