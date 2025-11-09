@@ -153,6 +153,16 @@ mpremote connect /dev/cu.usbserial-0001 cat boot.py
 mpremote connect /dev/cu.usbserial-0001 fs cp filename.py :filename.py
 ```
 
+## Upload a folder to the device
+
+```bash
+mpremote connect /dev/cu.usbserial-0001 fs cp -r ./path/to/folder :
+# This uploads all files from the local folder to the device's root directory
+
+# To upload to a subdirectory on the device, specify the target path:
+mpremote connect /dev/cu.usbserial-0001 fs cp -r ./path/to/folder :sub/dir/on/device
+```
+
 ## Run the uploaded file
 
 ```bash
@@ -161,7 +171,14 @@ mpremote connect /dev/cu.usbserial-0001 run filename.py
 # Alternate way to run the file:
 mpremote connect /dev/cu.usbserial-0001 repl
 >>> import filename
+>>> filename.function_name()  # call specific function if needed
 
 # Another way using exec:
 mpremote connect /dev/cu.usbserial-0001 exec "import filename"
+```
+
+## Delete a file from the device
+
+```bash
+mpremote connect /dev/cu.usbserial-0001 fs rm filename.py
 ```

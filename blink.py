@@ -7,11 +7,15 @@ led = Pin(2, Pin.OUT)
 
 print("Starting LED blink program...")
 
-while True:
-    led.on()  # Alternative way to turn LED on
-    print("LED is ON")
-    time.sleep(1)  # Wait for 1 second
+try:
+    while True:
+        led.on()  # Alternative way to turn LED on
+        print("LED is ON")
+        time.sleep(1)  # Wait for 1 second
 
-    led.off()  # Alternative way to turn LED off
-    print("LED is OFF")
-    time.sleep(1)  # Wait for 1 second
+        led.off()  # Alternative way to turn LED off
+        print("LED is OFF")
+        time.sleep(1)  # Wait for 1 second
+except KeyboardInterrupt:  # Allow graceful exit on Ctrl+C
+    print("Program interrupted. Turning off LED.")
+    led.off()  # Ensure LED is turned off on exit
