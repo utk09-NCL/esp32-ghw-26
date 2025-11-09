@@ -10,9 +10,11 @@ led = Pin(2, Pin.OUT)  # On-board LED for status indication
 WIFI_SSID = "YOUR_WIFI_NAME"  # TODO: Replace with your WiFi SSID
 WIFI_PASSWORD = "YOUR_WIFI_PASSWORD"  # TODO: Replace with your WiFi password
 
-GITHUB_USERNAME = "your_github_username"  # TODO: Replace with your GitHub username
-GITHUB_REPO = "your_repository_name"  # TODO: Replace with your repository name
-GITHUB_FILEPATH = "path/to/your/file.json"  # TODO: Replace with the path to your JSON file in the repo
+GITHUB_USERNAME = "utk09-NCL"  # TODO: Replace with your GitHub username
+GITHUB_REPO = "esp32-ghw-26"  # TODO: Replace with your repository name
+GITHUB_FILEPATH = (
+    "portfolios.json"  # TODO: Replace with the path to your JSON file in the repo
+)
 
 GITHUB_URL = f"https://raw.githubusercontent.com/{GITHUB_USERNAME}/{GITHUB_REPO}/main/{GITHUB_FILEPATH}"
 
@@ -68,10 +70,10 @@ def fetch_portfolios_data():
         else:
             print(f" Failed to fetch data. Status code: {response.status_code}")
             response.close()
-            return None
+            return []
     except Exception as e:
         print(f" Exception occurred while fetching data: {e}")
-        return None
+        return []
 
 
 def generate_home_page(portfolios):
@@ -554,14 +556,12 @@ def start_portfolio_server():
                 path = parse_request_path(request)
                 print(f" Requested path: {path}")
 
-                print(f" Path after parsing: {path}")
-
                 if path == "/" or path == "":
                     print(" Generating home page...")
-                    html_content = generate_portfolio_html(portfolios_data)
+                    html_content = generate_home_page(portfolios_data)
                     print(" Serving home page with all portfolios.")
                 else:
-                    username = path.lstrip("/").split("?")[0]
+                    username = path.lstrip("/")
                     portfolio = find_portfolio(portfolios_data, username)
 
                     if portfolio:
