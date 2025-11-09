@@ -175,10 +175,29 @@ mpremote connect /dev/cu.usbserial-0001 repl
 
 # Another way using exec:
 mpremote connect /dev/cu.usbserial-0001 exec "import filename"
+
+# or
+mpremote connect /dev/cu.usbserial-0001 repl
+>>> exec(open('filename.py').read())
 ```
 
 ## Delete a file from the device
 
 ```bash
 mpremote connect /dev/cu.usbserial-0001 fs rm filename.py
+```
+
+## Reset the device
+
+```bash
+# The difference between `reset` and `soft reset`:
+# - `reset`: Performs a hard reset, similar to pressing the reset button on the device.
+# - `soft reset`: Performs a soft reset, which restarts the MicroPython interpreter without rebooting the entire device.
+
+mpremote connect /dev/cu.usbserial-0001 repl
+>>> import machine
+>>> machine.reset()
+
+>>> import machine
+>>> machine.soft_reset()
 ```
