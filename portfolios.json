@@ -1,0 +1,81 @@
+[
+  {
+    "fullName": "UT",
+    "title": "Full Stack Developer | IoT Enthusiast",
+    "github": "utk09-NCL",
+    "linkedin": "my-linkedin",
+    "email": "my.email@example.com",
+    "about": "I'm a passionate developer with expertise in web technologies and IoT.",
+    "skills": [
+      "Python",
+      "JavaScript",
+      "React",
+      "Node.js",
+      "ESP32",
+      "MicroPython",
+      "IoT",
+      "UX Design"
+    ],
+    "projects": [
+      {
+        "name": "ESP32 Portfolio Server",
+        "description": "A unique portfolio website running on ESP32 hardware, fetching data from GitHub and accessible globally via ngrok.",
+        "url": "https://github.com/utk09-NCL/esp32-ghw-26"
+      },
+      {
+        "name": "Color Palette Generator",
+        "description": "Generate colour palettes",
+        "url": "https://github.com/utk09-NCL/color-palette-generator"
+      },
+      {
+        "name": "Web Song Maker",
+        "description": "Make songs on the web",
+        "url": "https://github.com/utk09-NCL/web-song-maker"
+      }
+    ]
+  },
+  {
+    "fullName": "Jane Smith",
+    "title": "Backend Engineer",
+    "github": "jane-smith",
+    "linkedin": "jane-smith",
+    "email": "jane@example.com",
+    "about": "Backend specialist focusing on microservices and scalable systems.",
+    "skills": [
+      "Python",
+      "Go",
+      "Kubernetes",
+      "Docker",
+      "PostgreSQL"
+    ],
+    "projects": [
+      {
+        "name": "Microservices API",
+        "description": "Scalable REST API using Go and Kubernetes",
+        "url": "https://github.com/jane-smith/microservices-api"
+      }
+    ]
+  },
+  {
+    "fullName": "John Developer",
+    "title": "Frontend Developer | React Expert",
+    "github": "john-dev",
+    "linkedin": "john-developer",
+    "email": "john@example.com",
+    "about": "React specialist with passion for beautiful UX and smooth interactions.",
+    "skills": [
+      "JavaScript",
+      "React",
+      "TypeScript",
+      "CSS",
+      "Next.js"
+    ],
+    "projects": [
+      {
+        "name": "E-Commerce Dashboard",
+        "description": "Modern dashboard for product management",
+        "url": "https://github.com/john-dev/ecommerce-dashboard"
+      }
+    ]
+  }
+]
