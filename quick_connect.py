@@ -3,7 +3,7 @@ from wifi_connect import connect_wifi
 
 def quick_connect():
     SSID = "YOUR_WIFI_NAME"  # TODO: Replace with your WiFi SSID
-    PASSWORD = "YOUR_PASSWORD"  # TODO: Replace with your WiFi password
+    PASSWORD = "YOUR_WIFI_PASSWORD"  # TODO: Replace with your WiFi password
     return connect_wifi(SSID, PASSWORD)  # Connect using predefined credentials
 
 
