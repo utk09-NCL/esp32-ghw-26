@@ -59,3 +59,46 @@ def web_page():
 </html>
 """
     return html
+
+
+def start_server():
+    ip = connect_wifi()
+    if not ip:
+        print("Could not connect to WiFi. Exiting...")
+        return
+
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    s.bind(("0.0.0.0", 80))
+    s.listen(5)
+    print(f"\n Listening on http://{ip}:80")
+    print(" Press Ctrl+C to stop the server.\n")
+
+    try:
+        while True:
+            conn, addr = s.accept()
+            print(f" Connection from {addr}")
+
+            request = conn.recv(1024).decode()
+            print(f" Request: {request}")
+
+            if "/on" in request:
+                led.on()
+                print(" LED turned ON")
+            elif "/off" in request:
+                led.off()
+                print(" LED turned OFF")
+
+            response = "HTTP/1.1 200 OK\nContent-Type: text/html\nConnection: close\n\n"
+            response += web_page()
+
+            conn.sendall(response.encode())
+            conn.close()
+    except KeyboardInterrupt:
+        print(" Server stopped.")
+        s.close()
+        led.off()
+
+
+if __name__ == "__main__":
+    start_server()
