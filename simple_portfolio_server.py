@@ -363,7 +363,7 @@ def start_portfolio_server():
                 )
                 conn.sendall(error_response.encode())
             finally:
-                conn.close()
+                # conn.close() # TODO: Check why closing connection causes issues
                 led.off()
                 gc.collect()
     except KeyboardInterrupt:
